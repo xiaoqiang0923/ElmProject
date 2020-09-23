@@ -19,17 +19,10 @@
 </head>
 <body>
 <div id="app">
-    <blueback>
-        <i class="fa fa-map-marker loc" slot="loc"><strong> 东软软件园 </strong><i class="fa fa-caret-down"></i></i>
-    </blueback>
-    <searchinst></searchinst>
-    <classifyinst></classifyinst>
-
     <mainnav></mainnav>
     <goodslistcpn></goodslistcpn>
 </div>
 
-<<<<<<< HEAD
 <!--顶部蓝色背景模板-->
 <template>
     <div id="blueback" class="bg-primary text-white">
@@ -37,8 +30,6 @@
 </template>
 <template></template>
 
-=======
->>>>>>> origin/master
 <!--导航模板-->
 <template id="mainnavtemp">
     <div class="container-fluid fixed-bottom mainnavtemp text-muted">
@@ -51,38 +42,27 @@
     </div>
 </template>
 
-<<<<<<< HEAD
 <template id="goodsListTemp">
+    <div><p>商家列表</p></div>
     <div >
         <ul>
-            <li></li>
+            <li>
+                <img src="">
+                   <p>万家饺子(软件园E18店)</p>
+                   <p>15起送 配送3</p>
+                   <p>各种饺子炒菜</p>
+            </li>
+            <li>
+                <img src="">
+                <p>小锅饭豆腐馆(全运店)</p>
+                <p>15起送 配送3</p>
+                <p>特色美食</p>
+            </li>
+
         </ul>
-=======
-<!--顶部蓝色背景模板-->
-<template id="bluebacktemp">
-    <div class="container-fluid bg-primary text-white bluebacktemp">
-        <slot name="loc"></slot>
->>>>>>> origin/master
     </div>
 </template>
 
-<!--顶部搜索模板-->
-<template id="searchtemp">
-    <div class="bg-primary text-white searchtemp">
-
-    </div>
-</template>
-
-<!--分类列表模板-->
-<template id="classifytemp">
-    <div class="container-fluid">
-        <div class="row">
-            <ul>
-                <li class="col-2 offset-1" v-for="(item,index) in classifylist"><img src="item.opic">{{item.oname}}</li>
-            </ul>
-        </div>
-    </div>
-</template>
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="js/jquery-3.3.1.js" ></script>

@@ -8,6 +8,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/customstyle.css" rel="stylesheet">
 
     <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
     <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
@@ -18,9 +19,23 @@
 </head>
 <body>
 <div id="app">
-
+    <mainnav></mainnav>
 </div>
 
+<template id="mainnavtemp">
+    <div class="container-fluid fixed-bottom mainnavtemp">
+        <div class="row">
+            <h6 class="col-2 offset-1"><i class="fa fa-home"></i>首页</h6>
+            <h6 class="col-2 offset-1"><i class="fa fa-compass"></i>发现</h6>
+            <h6 class="col-2 offset-1"><i class="fa fa-file-text-o"></i>订单</h6>
+            <h6 class="col-2 offset-1"><i class="fa fa-user-o"></i>我的</h6>
+        </div>
+    </div>
+</template>
+
+<template>
+
+</template>
 
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
@@ -31,6 +46,7 @@
 <script src="js/vue-resources.js"></script>
 <script src="js/vue-router.js"></script>
 <script src="js/custom.js"></script>
+
 
 </body>
 </html>

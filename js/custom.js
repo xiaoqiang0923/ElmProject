@@ -12,7 +12,34 @@ let bluebackcpn=Vue.extend({
 });
 let blueback=Vue.component('blueback',bluebackcpn);
 
+//顶部搜索组件
+let searchcpn=Vue.extend({
+    template:'#searchtemp'
+});
+let searchinst=Vue.component('searchinst',searchcpn);
 
+//分类列表组件
+let classifycpn=Vue.extend({
+    template:'#classifytemp',
+    data:function(){
+        return{
+            classifylist:[],
+        }
+    },
+    mounted:function(){
+        this.getclassify();
+    },
+    methods:{
+        getclassify:function(){
+            this.$http.get("json/classifylist.json").then(
+                function (res){
+                    this.classifylist=res.body.dataZone.orderlists;
+                }
+            )
+        }
+    }
+});
+let classifyinst=Vue.component('classifyinst',classifycpn);
 
 //vue组件
 const vm=new Vue({

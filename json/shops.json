@@ -1,4 +1,4 @@
-//商家和商品信息
+
 {
 
   "dataZone": {
@@ -8,7 +8,7 @@
         "sname": "万家饺子(软件园E18店)",
         "sstyle":"各种饺子炒菜",
         "peisong": 15,
-        "spic": "images/dcfl01.png",
+        "spic": "images/sj01.png",
         "pprice": 3,
         "goodslist": [
           {

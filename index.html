@@ -22,6 +22,9 @@
     <blueback>
         <i class="fa fa-map-marker loc" slot="loc"><strong> 东软软件园 </strong><i class="fa fa-caret-down"></i></i>
     </blueback>
+    <searchinst></searchinst>
+    <classifyinst></classifyinst>
+
     <mainnav></mainnav>
 </div>
 
@@ -39,11 +42,28 @@
 
 <!--顶部蓝色背景模板-->
 <template id="bluebacktemp">
-    <div class="bg-primary text-white bluebacktemp">
+    <div class="container-fluid bg-primary text-white bluebacktemp">
         <slot name="loc"></slot>
     </div>
 </template>
 
+<!--顶部搜索模板-->
+<template id="searchtemp">
+    <div class="bg-primary text-white searchtemp">
+
+    </div>
+</template>
+
+<!--分类列表模板-->
+<template id="classifytemp">
+    <div class="container-fluid">
+        <div class="row">
+            <ul>
+                <li class="col-2 offset-1" v-for="(item,index) in classifylist"><img src="item.opic">{{item.oname}}</li>
+            </ul>
+        </div>
+    </div>
+</template>
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="js/jquery-3.3.1.js" ></script>

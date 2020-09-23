@@ -12,7 +12,13 @@ let bluebackcpn=Vue.extend({
 });
 let blueback=Vue.component('blueback',bluebackcpn);
 
+//创建商家列表组建
+let mygoodslist=Vue.extend({
+    template:'#goodsListTemp'
 
+});
+//注册商家列表组建
+let goodslistcpn=Vue.component('goodslistcpn',mygoodslist);
 
 //vue组件
 const vm=new Vue({

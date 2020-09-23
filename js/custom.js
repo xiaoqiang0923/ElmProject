@@ -6,9 +6,13 @@ let mainnavcpn=Vue.extend({
 });
 let mainnav=Vue.component('mainnav',mainnavcpn);
 
+//创建商家列表组建
+let mygoodslist=Vue.extend({
+    template:'#goodsListTemp'
 
-
-
+});
+//注册商家列表组建
+let goodslistcpn=Vue.component('goodslistcpn',mygoodslist);
 
 //vue组件
 const vm=new Vue({

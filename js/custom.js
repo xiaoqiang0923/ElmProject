@@ -6,13 +6,13 @@ let mainnavcpn=Vue.extend({
 });
 let mainnav=Vue.component('mainnav',mainnavcpn);
 
-//创建商家列表组建
-let mygoodslist=Vue.extend({
-    template:'#goodsListTemp'
-
+//顶部蓝色背景组件
+let bluebackcpn=Vue.extend({
+    template:'#bluebacktemp'
 });
-//注册商家列表组建
-let goodslistcpn=Vue.component('goodslistcpn',mygoodslist);
+let blueback=Vue.component('blueback',bluebackcpn);
+
+
 
 //vue组件
 const vm=new Vue({

@@ -1,0 +1,26 @@
+//商家和商品信息
+{
+
+  "dataZone": {
+    "shopslists": [
+      {
+        "sid":100,
+        "sname": "万家饺子(软件园E18店)",
+        "sstyle":"各种饺子炒菜",
+        "peisong": 15,
+        "spic": "images/dcfl01.png",
+        "pprice": 3,
+        "goodslist": [
+          {
+            "gid":1001,
+            "gname": "纯肉鲜肉(水饺)",
+            "gstyle":"新鲜猪肉",
+            "gprice": 15,
+            "gcount": 0,
+            "grade": true
+           }
+        ]
+      }
+    ]
+  }
+}

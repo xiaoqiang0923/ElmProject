@@ -1,7 +1,4 @@
-html, body {
-    width: 100%;
-    height: 100%;
-}
+
 /*底部导航样式*/
 .mainnavtemp{
     height: 100px;
@@ -14,6 +11,11 @@ html, body {
     display: block;
 }
 /*顶部蓝色背景样式*/
-#blueback{
+.bluebacktemp{
     height: 100px;
+}
+.loc{
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 30px;
 }

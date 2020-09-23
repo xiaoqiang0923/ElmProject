@@ -6,7 +6,11 @@ let mainnavcpn=Vue.extend({
 });
 let mainnav=Vue.component('mainnav',mainnavcpn);
 
-
+//顶部蓝色背景组件
+let bluebackcpn=Vue.extend({
+    template:'#bluebacktemp'
+});
+let blueback=Vue.component('blueback',bluebackcpn);
 
 
 

@@ -19,16 +19,11 @@
 </head>
 <body>
 <div id="app">
+    <blueback>
+        <i class="fa fa-map-marker loc" slot="loc"><strong> 东软软件园 </strong><i class="fa fa-caret-down"></i></i>
+    </blueback>
     <mainnav></mainnav>
 </div>
-
-<!--顶部蓝色背景模板-->
-<template>
-    <div id="blueback" class="bg-primary text-white">
-        dd
-    </div>
-</template>
-<template></template>
 
 <!--导航模板-->
 <template id="mainnavtemp">
@@ -42,8 +37,11 @@
     </div>
 </template>
 
-<template>
-
+<!--顶部蓝色背景模板-->
+<template id="bluebacktemp">
+    <div class="bg-primary text-white bluebacktemp">
+        <slot name="loc"></slot>
+    </div>
 </template>
 
 

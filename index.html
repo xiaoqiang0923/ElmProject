@@ -19,57 +19,64 @@
 </head>
 <body>
 <div id="app">
+    <transition enter-active-class="animated fadeIn">
+        <router-view></router-view>
+    </transition>
+</div>
+
+<!--首页模板-->
+<template id="homepagetemp">
+    <div>
     <blueback>
         <i class="fa fa-map-marker loc" slot="loc"><strong> 东软软件园 </strong><i class="fa fa-caret-down"></i></i>
     </blueback>
     <searchinst></searchinst>
     <classifyinst></classifyinst>
-
+    <banner></banner>
+    <supermember></supermember>
+    <recommendinst></recommendinst>
+    <recommendshop></recommendshop>
     <mainnav></mainnav>
-    <goodslistcpn></goodslistcpn>
-</div>
-
-<<<<<<< HEAD
-<!--顶部蓝色背景模板-->
-<template>
-    <div id="blueback" class="bg-primary text-white">
     </div>
 </template>
-<template></template>
 
-=======
->>>>>>> origin/master
+
 <!--导航模板-->
 <template id="mainnavtemp">
     <div class="container-fluid fixed-bottom mainnavtemp text-muted">
         <div class="row">
-            <h3 class="col-2 offset-2"><i class="fa fa-home"></i>首页</h3>
-            <h3 class="col-2 "><i class="fa fa-compass"></i>发现</h3>
+            <h3 class="col-2 offset-2">
+                <router-link to="/index">
+                <i class="fa fa-home"></i>首页
+                </router-link>
+            </h3>
+            <h3 class="col-2 ">
+                <router-link to="/shoplist">
+                <i class="fa fa-compass"></i>发现
+                </router-link>
+            </h3>
             <h3 class="col-2 "><i class="fa fa-file-text-o"></i>订单</h3>
             <h3 class="col-2 "><i class="fa fa-user-o"></i>我的</h3>
         </div>
     </div>
 </template>
 
-<<<<<<< HEAD
-<template id="goodsListTemp">
-    <div >
-        <ul>
-            <li></li>
-        </ul>
-=======
 <!--顶部蓝色背景模板-->
 <template id="bluebacktemp">
     <div class="container-fluid bg-primary text-white bluebacktemp">
         <slot name="loc"></slot>
->>>>>>> origin/master
     </div>
 </template>
 
 <!--顶部搜索模板-->
 <template id="searchtemp">
-    <div class="bg-primary text-white searchtemp">
-
+    <div class=" bg-primary text-white searchtemp">
+            <div class="input-group  col-10 offset-1 searchinput">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="搜索饿了么商家">
+            </div>
     </div>
 </template>
 
@@ -78,11 +85,122 @@
     <div class="container-fluid">
         <div class="row">
             <ul>
-                <li class="col-2 offset-1" v-for="(item,index) in classifylist"><img src="item.opic">{{item.oname}}</li>
+                <li class="col-12 col-sm-4 col-md-2" v-for="(item,index) in classifylist"><img :src=item.opic><br/><p>{{item.oname}}</p></li>
             </ul>
         </div>
     </div>
 </template>
+
+<!--广告部分模板-->
+<template id="bannertemp">
+    <div class="container-fluid bannertemp">
+        <h3>品质套餐</h3>
+        <p>搭配齐全吃得好</p>
+        <a>立即抢购 &gt;</a>
+    </div>
+</template>
+
+<!--会员部分模板-->
+<template id="supermembertemp">
+    <div class="container-fluid supermembertemp">
+        <div class="left">
+            <img src="images/super_member.png">
+            <h3>超级会员</h3>
+            <p>&#8226; 每月享超值权益</p>
+        </div>
+        <div class="right">
+            立即开通 &gt;
+        </div>
+    </div>
+</template>
+
+<!--推荐商家模板-->
+<template id="recommendtemp">
+    <div class="container-fluid recommendtemp">
+        <div class="recommend">
+            <div class="recommend-line"></div>
+            <p>推荐商家</p>
+            <div class="recommend-line"></div>
+        </div><br/>
+        <!-- 推荐方式部分 -->
+        <div class="recommendtype">
+            <ul>
+                <li>综合排序<i class="fa fa-caret-down"></i></li>
+                <li>距离最近</li>
+                <li>销量最高</li>
+                <li>筛选<i class="fa fa-filter"></i></li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<!-- 推荐商家列表组件 -->
+<template id="recommendshoptemp">
+    <div class="container-fluid lists recommendshoptemp">
+        <div v-for="(item,index) in $root.shopslists" class="row  text-muted">
+            <div class="col-12 col-sm-2">
+                <img v-bind:src="item.spic" :alt="item.name"/>
+            </div>
+            <div class="col-8 col-sm-6">
+                <h3 class="font-weight-bolder text-dark">{{item.sname}}</h3>
+                <p><i v-for="i in item.star" class="fa fa-star text-warning"></i> {{item.score}} 月售{{item.soldqty}}单</p>
+                <p>{{item.sstyle}}</p>
+                <p><span>新</span>饿了么新用户首单立减{{item.discount|moneyFmt}}</p>
+                <p><span>特</span>特价商品{{item.bargain|moneyFmt}}起</p>
+            </div>
+            <div class="col-4 col-sm-4">
+                <p>.</p>
+                <p><span>蜂鸟专送</span></p>
+                <p>{{item.distance}}km | {{item.time}}分钟</p>
+                <p><i class="fa fa-arrow-circle-down"></i></p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!--顶部信息组件-->
+<template id="topinfotemp">
+    <div class="container-fluid bg-primary text-white fixed-top topinfotemp">
+        <slot name="info"></slot>
+    </div>
+</template>
+
+<!-- ******************************************************************************************-->
+<!--商家列表模板-->
+<template id="shopsListTemp" >
+    <div>
+        <topinfo><p1 slot="info">商家列表</p1></topinfo>
+        <div class="container-fluid lists shopsListTemp" >
+            <div v-for="(item,index) in $root.shopslists" class="row text-muted divbdr" >
+                <div class="col-12 col-sm-2 ">
+                    <img v-bind:src="item.spic" alt="item.name">
+                </div>
+                <div class="col-7 col-sm-4 ">
+                    <h4 class="font-weight-bolder text-dark">{{item.sname}}</h4>
+                    <p>{{item.peisong|moneyFmt}}起送 | 配送{{item.pprice|moneyFmt}}</p>
+                    <p>{{item.sstyle}}</p>
+                </div>
+            </div>
+        </div>
+        <mainnav></mainnav>
+    </div>
+</template>
+
+
+
+
+
+
+<!--在线支付组件-->
+<template id="onlinepaytemp">
+    <div class="container-fluid onlinepaytemp">
+        <div>
+            <h3>订单信息</h3>
+            <h3>万家饺子(软件园E18</h3>
+        </div>
+    </div>
+</template>
+
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="js/jquery-3.3.1.js" ></script>
@@ -94,7 +212,6 @@
 <script src="js/custom.js"></script>
 
 
-
-
 </body>
+
 </html>

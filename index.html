@@ -142,7 +142,9 @@
                 <img v-bind:src="item.spic" :alt="item.name"/>
             </div>
             <div class="col-8 col-sm-6">
+                <router-link :to="item.routeradd">
                 <h3 class="font-weight-bolder text-dark">{{item.sname}}</h3>
+                </router-link>
                 <p><i v-for="i in item.star" class="fa fa-star text-warning"></i> {{item.score}} 月售{{item.soldqty}}单</p>
                 <p>{{item.sstyle}}</p>
                 <p><span>新</span>饿了么新用户首单立减{{item.discount|moneyFmt}}</p>
@@ -151,7 +153,7 @@
             <div class="col-4 col-sm-4">
                 <p>.</p>
                 <p><span>蜂鸟专送</span></p>
-                <p>{{item.distance}}km | {{item.time}}分钟</p>
+                <p>{{item.distance|distanceFmt}} | {{item.time|timeFmt}}</p>
                 <p><i class="fa fa-arrow-circle-down"></i></p>
             </div>
         </div>
@@ -169,7 +171,7 @@
 <!--商家列表模板-->
 <template id="shopsListTemp" >
     <div>
-        <topinfo><p1 slot="info">商家列表</p1></topinfo>
+        <topinfo><p slot="info">商家列表</p></topinfo>
         <div class="container-fluid lists shopsListTemp" >
             <div v-for="(item,index) in $root.shopslists" class="row text-muted divbdr" >
                 <div class="col-12 col-sm-2 ">
@@ -187,19 +189,62 @@
 </template>
 
 
-
-
-
-
-<!--在线支付组件-->
-<template id="onlinepaytemp">
-    <div class="container-fluid onlinepaytemp">
-        <div>
-            <h3>订单信息</h3>
-            <h3>万家饺子(软件园E18</h3>
+<!--商家信息模板-->
+<template id="shopinfoTemp" >
+    <div>
+        <topinfo><p slot="info">商家信息</p></topinfo>
+        <div class="container-fluid lists shopinfoTemp" >
+                <div class="shopinfoTemp-d1">
+                    <img :src="(new Object($root.shopslists[0])).spic" />
+                    <h1><strong>{{(new Object($root.shopslists[0])).sname}}</strong></h1>
+                    <p>{{(new Object($root.shopslists[0])).peisong|moneyFmt}}起送 | {{(new Object($root.shopslists[0])).pprice|moneyFmt}}配送</p>
+                    <p>{{(new Object($root.shopslists[0])).sstyle}}</p>
+                </div>
+                <div v-for="(item,index) in goodlist" class="shopinfoTemp-d2 row">
+                    <img class="col-3" :src="item.gpic" />
+                    <div class="col-7">
+                        <h2>{{item.gname}}</h2>
+                        <p>{{item.gstyle}}</p>
+                        <p>{{item.gprice|moneyFmt}}</p>
+                    </div>
+                    <div class="col-2">
+                        <button class="fa fa-minus-circle" v-on:click="item.gcount --" v-bind:disabled="item.gcount==0"></button>
+                        <span> {{item.gcount}} </span>
+                        <button class="fa fa-plus-circle" v-on:click="item.gcount ++" v-bind:disabled="item.gcount==10"></button>
+                    </div>
+                </div>
+        </div>
+        <settlement></settlement>
+    </div>
+</template>
+<!--底部结算模板-->
+<template id="settlementtemp">
+    <div class="container-fluid fixed-bottom settlementtemp text-muted">
+        <div class="settlementtemp row">
+            <div class="carleft col-8">
+                <div>
+                    <i class="fa fa-shopping-cart"></i>
+                    <div>3</div>
+                </div>
+            </div>
+            <div class="carright col-4">
+                <h2>去结算</h2>
+            </div>
         </div>
     </div>
 </template>
+
+
+
+<!--&lt;!&ndash;在线支付组件&ndash;&gt;-->
+<!--<template id="onlinepaytemp">-->
+<!--    <div class="container-fluid onlinepaytemp">-->
+<!--        <div>-->
+<!--            <h3>订单信息</h3>-->
+<!--            <h3>万家饺子(软件园E18</h3>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</template>-->
 
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->

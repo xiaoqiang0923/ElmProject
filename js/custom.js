@@ -104,42 +104,67 @@ let topinfo=Vue.component('topinfo',topinfocpn);
 //创建商家列表组建
 let myshopslist=Vue.extend({
     template:'#shopsListTemp',
+});
+let shopslistcpn=Vue.component('shopslistcpn',myshopslist);
+
+//商家信息组建
+let shopinfocpn=Vue.extend({
+    template:'#shopinfoTemp',
     data:
         function(){
             return{
-                shopslists: [],
+                goodlist: []
             }
         },
+    mounted:function(){
+        this.getgoodslists();
+    },
     methods:{
-        getInfo:function (){
+        getgoodslists:function (){
             this.$http.get("json/shops.json").then(
                 function (res){
-                    this.shopslists=res.body.dataZone.shopslists;
+                    this.goodlist=res.body.dataZone.shopslists[0].goodslist;
                 }
             )
         }
     }
 });
-let shopslistcpn=Vue.component('shopslistcpn',myshopslist);
+let shopinfo=Vue.component('shopinfo',shopinfocpn);
 
-
-
+//底部结算组建
+let settlementcpn=Vue.extend({
+    template:'#settlementtemp',
+});
+let settlement=Vue.component('settlement',settlementcpn);
 
 //配置路由
 let routers = [
     {path:'/index',component:homepagecpn},
     {path:'/',component:homepagecpn},
     {path:'*',component:homepagecpn},
-    {path:'/shoplist',component:myshopslist}
+    {path:'/shoplist',component:myshopslist},
+    {path: '/wanjiajiaozi',component:shopinfocpn}
 ];
 //生成路由实例
 let myrouter = new VueRouter({
     routes:routers
 });
-//自定义全局过滤器
+//价格过滤器
 Vue.filter('moneyFmt',function (value){
     if(parseFloat(value)){
         return "￥"+parseFloat(value)
+    }
+});
+//路程过滤器
+Vue.filter('distanceFmt',function (value){
+    if(parseFloat(value)){
+        return parseFloat(value)+"km"
+    }
+});
+//时间过滤器
+Vue.filter('timeFmt',function (value){
+    if(parseInt(value)){
+        return parseInt(value)+"分钟"
     }
 });
 //vue组件

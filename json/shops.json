@@ -17,15 +17,71 @@
         "time": 30,
         "discount": 9,
         "bargain": 5,
+        "routeradd": "/wanjiajiaozi",
         "goodslist": [
           {
             "gid":1001,
             "gname": "纯肉鲜肉(水饺)",
+            "gpic": "images/sp01.png",
             "gstyle":"新鲜猪肉",
             "gprice": 15,
             "gcount": 0,
             "grade": true
-           }
+           },
+          {
+            "gid":1002,
+            "gname": "玉米鲜肉(水饺)",
+            "gpic": "images/sp02.png",
+            "gstyle":"玉米鲜肉",
+            "gprice": 16,
+            "gcount": 0,
+            "grade": false
+          },
+          {
+            "gid":1003,
+            "gname": "虾仁三鲜(蒸饺)",
+            "gpic": "images/sp03.png",
+            "gstyle":"虾仁三鲜",
+            "gprice": 22,
+            "gcount": 0,
+            "grade": false
+          },
+          {
+            "gid":1004,
+            "gname": "素三鲜(蒸饺)",
+            "gpic": "images/sp04.png",
+            "gstyle":"素三鲜",
+            "gprice": 15,
+            "gcount": 0,
+            "grade": false
+          },
+          {
+            "gid":1005,
+            "gname": "角瓜鸡蛋(蒸饺)",
+            "gpic": "images/sp05.png",
+            "gstyle":"角瓜鸡蛋",
+            "gprice": 16,
+            "gcount": 0,
+            "grade": false
+          },
+          {
+            "gid":1006,
+            "gname": "小白菜肉(水饺)",
+            "gpic": "images/sp06.png",
+            "gstyle":"小白菜肉",
+            "gprice": 18,
+            "gcount": 0,
+            "grade": false
+          },
+          {
+            "gid":1007,
+            "gname": "芹菜牛肉(水饺)",
+            "gpic": "images/sp07.png",
+            "gstyle":"芹菜牛肉",
+            "gprice": 18,
+            "gcount": 0,
+            "grade": false
+          }
         ]
       },
       {
@@ -41,7 +97,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":103,
@@ -56,7 +113,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":104,
@@ -71,7 +129,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":105,
@@ -86,7 +145,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":106,
@@ -101,7 +161,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":107,
@@ -116,7 +177,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":108,
@@ -131,7 +193,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       },
       {
         "sid":109,
@@ -146,7 +209,8 @@
         "distance": 3.22,
         "time": 30,
         "discount": 9,
-        "bargain": 5
+        "bargain": 5,
+        "routeradd": "/wanjiajiaozi"
       }
     ]
   }

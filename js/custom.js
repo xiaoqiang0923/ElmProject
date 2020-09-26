@@ -147,13 +147,43 @@ let payment=Vue.component('payment',paymentcpn);
 
 //订单列表组件
 let orderlistcpn=Vue.extend({
-    template:'#orderlisttemp'
+    template:'#orderlisttemp',
+    data:function (){
+        return {
+            isShow:false,
+        }
+    },
+    methods:{
+        click(){
+
+            if(this.isShow){
+                this.isShow = !this.isShow;
+            }else{
+                this.isShow = !this.isShow;
+            }
+        }
+    }
 })
 let orderlist=Vue.component('orderlist',orderlistcpn);
 
 //在线支付组件
 let olpaymentcpn=Vue.extend({
-    template:'#olpaymenttemp'
+    template:'#olpaymenttemp',
+    data:function (){
+        return {
+            isShow:false,
+        }
+    },
+    methods:{
+        click(){
+
+            if(this.isShow){
+                this.isShow = !this.isShow;
+            }else{
+                this.isShow = !this.isShow;
+            }
+        }
+    }
 });
 let olpayment=Vue.component('olpayment',olpaymentcpn);
 
@@ -197,6 +227,7 @@ const vm=new Vue({
     el:"#app",
     data:{
         shopslists: [],
+        buycount:0
     },
     mounted:function (){
         this.$http.get("json/shops.json").then(
@@ -205,5 +236,6 @@ const vm=new Vue({
             }
         )
     },
+
     router:myrouter
 });

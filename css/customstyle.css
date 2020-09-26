@@ -41,7 +41,6 @@ body a,a:hover{
     display:block;
     text-align: center;
     float: left;
-
 }
 
 /*广告栏样式*/
@@ -174,8 +173,8 @@ body a,a:hover{
     text-align: center;
 }
 .shopinfoTemp .shopinfoTemp-d1>img{
-    width: 400px;
-    height: 400px;
+    width: 264px;
+    height: 264px;
     margin-bottom: 50px;
 }
 .shopinfoTemp .shopinfoTemp-d1>h1{
@@ -203,7 +202,7 @@ body a,a:hover{
     font-size: 30px;
 }
 .shopinfoTemp :nth-last-child(1){
-    margin-bottom: 100px;
+    margin-bottom: 140px;
 }
 .shopinfoTemp .shopinfoTemp-d2 button{
     border: 0;

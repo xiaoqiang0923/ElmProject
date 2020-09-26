@@ -365,28 +365,28 @@
         <div class=" row container-fluid orderlisttemp" >
             <h4 class="col-12 mb-3 text-secondary">未支付订单信息 :</h4>
             <h3 class="col-12 mb-4">万家饺子(软件园E18店)
-                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <i class="dropdown-toggle dropdown-toggle-split" @click="click"></i>
                 <span >￥49
                     <router-link to="/zaixianzhifu">
                     <span class="order-info-right-icon">去支付</span>
                     </router-link>
                 </span>
             </h3>
-            <div class="row container-fluid">
+            <div class="row container-fluid" v-show="isShow">
             <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
             <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
             <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
             </div>
 
             <h3 class="col-12 mb-4">小锅饭豆腐馆(全运店)
-                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <i class="dropdown-toggle dropdown-toggle-split" @click="click"></i>
                 <span >￥55
                     <router-link to="/zaixianzhifu">
                     <span class="order-info-right-icon">去支付</span>
                     </router-link>
                 </span>
             </h3>
-            <div class="row container-fluid">
+            <div class="row container-fluid" v-show="isShow">
             <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
             <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
             <p class="col-12 mb-5 text-muted">配送费                    <span>￥3</span></p>
@@ -394,20 +394,20 @@
 
             <h4 class="col-12 mb-4 text-secondary">已支付订单信息 :</h4>
             <h3 class="col-12 mb-4">万家饺子(软件园E18店)
-                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <i class="dropdown-toggle dropdown-toggle-split" @click="click"></i>
                 <span >￥49 </span>
             </h3>
-            <div class="row container-fluid">
+            <div class="row container-fluid" v-show="isShow">
             <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
             <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
             <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
             </div>
 
             <h3 class="col-12 mb-4">小锅饭豆腐馆(全运店)
-                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <i class="dropdown-toggle dropdown-toggle-split" @click="click"></i>
                 <span >￥55</span>
             </h3>
-            <div class="row container-fluid">
+            <div class="row container-fluid" v-show="isShow">
             <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
             <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
             <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
@@ -424,10 +424,15 @@
         <topinfo><p slot="info">在线支付</p></topinfo>
         <div class=" row container-fluid olpaymenttemp " >
             <h4 class="col-12 mb-3 text-secondary">订单信息 :</h4>
-            <h3 class="col-12 mb-4">万家饺子(软件园E18店)<a class="dropdown-toggle dropdown-toggle-split"></a><span >￥49</span></h3>
+            <h3 class="col-12 mb-4">万家饺子(软件园E18店)
+                <a class="dropdown-toggle dropdown-toggle-split" @click="click"></a>
+                <span >￥49</span>
+            </h3>
+            <div class="row container-fluid" v-show="isShow">
             <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
             <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
             <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
+            </div>
             <div class="col-12 mb-4"><img src="images/alipay.png"><span class="fa fa-check-circle" style="color: #34ce57;font-size:24px"></span></div>
             <div class="col-12 "><img src="images/wechat.png"></div>
 

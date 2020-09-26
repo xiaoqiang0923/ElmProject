@@ -19,31 +19,6 @@ let blueback=Vue.component('blueback',bluebackcpn);
 //顶部搜索组件
 let searchcpn=Vue.extend({
     template:'#searchtemp',
-    data:function (){
-        return {
-            topDistance : 0
-        };
-    },
-    mounted:function(){
-        window.addEventListener('scroll',this.fixTopDistance);
-        window.onload = function(){
-            let search = document.getElementsByClassName('searchtemp');
-            console.log(111)
-
-            if(this.topDistance>80){
-                search.style.position = 'fixed';
-                search.style.left = '0';
-                search.style.top = '0';
-            }
-            // else{
-            //     search.style.position = 'static';
-            // }
-        }
-    },
-    methods: {
-        fixTopDistance: function () {
-            this.topDistance = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;},
-        }
 });
 let searchinst=Vue.component('searchinst',searchcpn);
 
@@ -53,10 +28,13 @@ let classifycpn=Vue.extend({
     data:function(){
         return{
             classifylist:[],
+            offset : 5
         }
     },
     mounted:function(){
         this.getclassify();
+
+        window.addEventListener("resize",this.getWidth);
     },
     methods:{
         getclassify:function(){
@@ -65,6 +43,14 @@ let classifycpn=Vue.extend({
                     this.classifylist=res.body.dataZone.orderlists;
                 }
             )
+        },
+
+        getWidth:function(){
+            let w = $(window).width();
+            if(w<540) this.offset=2;
+            if(w<720) this.offset=3;
+            if(w<960) this.offset=4;
+            if(w<1140) this.offset=5;
         }
     }
 });
@@ -93,7 +79,6 @@ let recommendshopcpn=Vue.extend({
     template:'#recommendshoptemp'
 });
 let recommendshop=Vue.component('recommendshop',recommendshopcpn);
-
 
 //顶部信息组件
 let topinfocpn=Vue.extend({
@@ -137,13 +122,53 @@ let settlementcpn=Vue.extend({
 });
 let settlement=Vue.component('settlement',settlementcpn);
 
+//用户登录组件
+let loginmembercpn=Vue.extend({
+    template:'#loginmembertemp'
+});
+
+//用户注册组件
+let registercpn=Vue.extend({
+    template:'#registertemp'
+})
+let register=Vue.component('register',registercpn);
+
+//确认订单组建
+let ordercpn=Vue.extend({
+    template:'#orderTemp'
+});
+let order=Vue.component('order',ordercpn);
+
+//底部支付组建
+let paymentcpn=Vue.extend({
+    template:'#paymenttemp',
+});
+let payment=Vue.component('payment',paymentcpn);
+
+//订单列表组件
+let orderlistcpn=Vue.extend({
+    template:'#orderlisttemp'
+})
+let orderlist=Vue.component('orderlist',orderlistcpn);
+
+//在线支付组件
+let olpaymentcpn=Vue.extend({
+    template:'#olpaymenttemp'
+});
+let olpayment=Vue.component('olpayment',olpaymentcpn);
+
 //配置路由
 let routers = [
     {path:'/index',component:homepagecpn},
     {path:'/',component:homepagecpn},
     {path:'*',component:homepagecpn},
     {path:'/shoplist',component:myshopslist},
-    {path: '/wanjiajiaozi',component:shopinfocpn}
+    {path: '/wanjiajiaozi',component:shopinfocpn},
+    {path: '/yonghudenglu',component:loginmembercpn},
+    {path: '/yonghuzhuce',component:registercpn},
+    {path: '/querendingdan',component:ordercpn},
+    {path: '/wodedingdan',component:orderlistcpn},
+    {path: '/zaixianzhifu',component:olpaymentcpn}
 ];
 //生成路由实例
 let myrouter = new VueRouter({

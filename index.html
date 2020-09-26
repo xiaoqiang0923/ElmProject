@@ -55,8 +55,16 @@
                 <i class="fa fa-compass"></i>发现
                 </router-link>
             </h3>
-            <h3 class="col-2 "><i class="fa fa-file-text-o"></i>订单</h3>
-            <h3 class="col-2 "><i class="fa fa-user-o"></i>我的</h3>
+            <h3 class="col-2 ">
+                <router-link to="/wodedingdan">
+                <i class="fa fa-file-text-o"></i>订单
+                </router-link>
+            </h3>
+            <h3 class="col-2 ">
+                <router-link to="/yonghudenglu">
+                <i class="fa fa-user-o"></i>我的
+                </router-link>
+            </h3>
         </div>
     </div>
 </template>
@@ -70,8 +78,8 @@
 
 <!--顶部搜索模板-->
 <template id="searchtemp">
-    <div class=" bg-primary text-white searchtemp">
-            <div class="input-group  col-10 offset-1 searchinput">
+    <div class="container-fluid bg-primary text-white searchtemp">
+            <div class="input-group input-group-lg col-10 offset-1 searchinput">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-search"></i></span>
                 </div>
@@ -85,7 +93,11 @@
     <div class="container-fluid">
         <div class="row">
             <ul>
-                <li class="col-12 col-sm-4 col-md-2" v-for="(item,index) in classifylist"><img :src=item.opic><br/><p>{{item.oname}}</p></li>
+                <li :key="index" class="col-5 col-sm-3 col-md-4 col-lg-2" v-bind:class="{'offset-1': !(index%offset)}" v-for="(item,index) in classifylist">
+                    <router-link :to="item.routeradd">
+                        <img :src=item.opic><br/><p>{{item.oname}}</p>
+                    </router-link>
+                </li>
             </ul>
         </div>
     </div>
@@ -174,13 +186,17 @@
         <topinfo><p slot="info">商家列表</p></topinfo>
         <div class="container-fluid lists shopsListTemp" >
             <div v-for="(item,index) in $root.shopslists" class="row text-muted divbdr" >
+                <router-link :to="item.routeradd">
                 <div class="col-12 col-sm-2 ">
                     <img v-bind:src="item.spic" alt="item.name">
                 </div>
+                </router-link>
                 <div class="col-7 col-sm-4 ">
+                    <router-link :to="item.routeradd">
                     <h4 class="font-weight-bolder text-dark">{{item.sname}}</h4>
                     <p>{{item.peisong|moneyFmt}}起送 | 配送{{item.pprice|moneyFmt}}</p>
                     <p>{{item.sstyle}}</p>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -226,25 +242,201 @@
                     <i class="fa fa-shopping-cart"></i>
                     <div>3</div>
                 </div>
+                    <p>￥12.88</p>
+                    <span>另需配送费￥3</span>
             </div>
             <div class="carright col-4">
+                <router-link to="/querendingdan">
                 <h2>去结算</h2>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 
+<!--用户登录模板-->
+<template id="loginmembertemp" >
+    <div>
+        <topinfo><p slot="info">用户登陆</p></topinfo>
+        <div class=" row container-fluid loginmembertemp" >
+            <span class="col-2">手机号码:</span><input type="text" class=" col-10 form-control border-0 " placeholder="手机号码">
+            <span class="col-2">密码:</span><input type="text" class="col-10 form-control border-0" placeholder="密码">
+            <div class="col-12 text-white">
+                <router-link to="/index">
+                <button type="button" class="btn btn-success btn-lg btn-block">登陆</button>
+                </router-link>
+            </div>
+            <div class="col-12 text-dark">
+                <router-link to="/yonghuzhuce">
+                <button type="button" class="btn btn-light btn-lg btn-block">去注册</button>
+                </router-link>
+            </div>
+        </div>
+        <mainnav></mainnav>
+    </div>
+</template>
 
+<!--用户注册模板-->
+<template id="registertemp">
+    <div>
+        <topinfo><p slot="info">用户注册</p></topinfo>
+        <div class=" row container-fluid loginmembertemp" >
+            <span style="font-size: 2em" class="col-2 font-weight-bold text-secondary">手机号码:</span>
+            <input type="text" class="col-10 form-control border-0 " placeholder="手机号码">
+            <span style="font-size: 2em" class="col-2 mb-4 font-weight-bold text-secondary ">密码:</span>
+            <input type="password" class="col-10 form-control border-0  " placeholder="密码">
+            <span style="font-size: 2em" class="col-2 mb-4 font-weight-bold text-secondary">确认密码:</span>
+            <input type="password" class="col-10 form-control border-0  " placeholder="确认密码">
+            <span style="font-size: 2em" class="col-2 mb-4 font-weight-bold text-secondary">用户姓名:</span>
+            <input type="text" class="col-10 form-control border-0  " placeholder="用户姓名">
+            <span style="font-size: 2em" class="col-2 mb-4 font-weight-bold text-secondary">性别:</span>
+            <div style="font-size: 3vm">
+                <input type="radio" name="sex" checked-style="width:6vm;height:3.2vm;">男
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="sex" style="width:6vm;height:3.2vm;">女
+            </div>
+            <div class="col-12 text-white">
+                <router-link to="/yonghudenglu">
+                <button type="button" class="btn btn-success btn-lg btn-block ">注册</button>
+                </router-link>
+            </div>
+        </div>
+        <mainnav></mainnav>
+    </div>
+</template>
 
-<!--&lt;!&ndash;在线支付组件&ndash;&gt;-->
-<!--<template id="onlinepaytemp">-->
-<!--    <div class="container-fluid onlinepaytemp">-->
-<!--        <div>-->
-<!--            <h3>订单信息</h3>-->
-<!--            <h3>万家饺子(软件园E18</h3>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</template>-->
+<!--确认订单模板-->
+<template id="orderTemp" >
+    <div>
+        <topinfo><p slot="info">确认订单</p></topinfo>
+        <div class="orderTemp" >
+            <div class="container-fluid bg-primary text-white">
+                <h5>订单配送至：</h5>
+                <span>沈阳市浑南区智慧四街1-121号</span>
+                <i class="fa fa-angle-right"></i>
+                <h5>李先生 13656785432</h5>
+            </div>
+            <div>
+                <h3>万家饺子（软件园E18店）</h3>
+            </div>
+            <div class="orderstl row">
+                <img class="col-3" src="images/sp01.png" />
+                <div class="col-8">
+                    <p>纯肉鲜肉(水饺) &nbsp;&nbsp; X2</p>
+                </div>
+                <div class="col-1">
+                    <p> ￥15 </p>
+                </div>
+            </div>
+            <div class="orderstl row">
+                <img class="col-3" src="images/sp02.png" />
+                <div class="col-8">
+                    <p>玉米鲜肉(水饺) &nbsp;&nbsp; X1</p>
+                </div>
+                <div class="col-1">
+                    <p> ￥16 </p>
+                </div>
+            </div>
+        </div>
+        <payment></payment>
+    </div>
+</template>
+
+<!--底部支付模板-->
+<template id="paymenttemp">
+    <div class="container-fluid fixed-bottom text-muted">
+        <div class="paymenttemp row">
+            <div class="carleft col-8">
+                <span>￥49</span>
+            </div>
+            <div class="carright col-4">
+                <router-link to="/zaixianzhifu">
+                去支付
+                </router-link>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!--我的订单模板-->
+<template id="orderlisttemp">
+    <div>
+        <topinfo><p slot="info">在线支付</p></topinfo>
+        <div class=" row container-fluid orderlisttemp" >
+            <h4 class="col-12 mb-3 text-secondary">未支付订单信息 :</h4>
+            <h3 class="col-12 mb-4">万家饺子(软件园E18店)
+                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <span >￥49
+                    <router-link to="/zaixianzhifu">
+                    <span class="order-info-right-icon">去支付</span>
+                    </router-link>
+                </span>
+            </h3>
+            <div class="row container-fluid">
+            <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
+            <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
+            <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
+            </div>
+
+            <h3 class="col-12 mb-4">小锅饭豆腐馆(全运店)
+                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <span >￥55
+                    <router-link to="/zaixianzhifu">
+                    <span class="order-info-right-icon">去支付</span>
+                    </router-link>
+                </span>
+            </h3>
+            <div class="row container-fluid">
+            <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
+            <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
+            <p class="col-12 mb-5 text-muted">配送费                    <span>￥3</span></p>
+            </div>
+
+            <h4 class="col-12 mb-4 text-secondary">已支付订单信息 :</h4>
+            <h3 class="col-12 mb-4">万家饺子(软件园E18店)
+                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <span >￥49 </span>
+            </h3>
+            <div class="row container-fluid">
+            <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
+            <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
+            <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
+            </div>
+
+            <h3 class="col-12 mb-4">小锅饭豆腐馆(全运店)
+                <i class="dropdown-toggle dropdown-toggle-split"></i>
+                <span >￥55</span>
+            </h3>
+            <div class="row container-fluid">
+            <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
+            <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
+            <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
+            </div>
+        </div>
+        <mainnav></mainnav>
+    </div>
+
+</template>
+
+<!--在线支付模板-->
+<template id="olpaymenttemp">
+    <div>
+        <topinfo><p slot="info">在线支付</p></topinfo>
+        <div class=" row container-fluid olpaymenttemp " >
+            <h4 class="col-12 mb-3 text-secondary">订单信息 :</h4>
+            <h3 class="col-12 mb-4">万家饺子(软件园E18店)<a class="dropdown-toggle dropdown-toggle-split"></a><span >￥49</span></h3>
+            <p class="col-12 mb-3 text-muted" >纯肉鲜肉 (水饺) &times;2           <span>￥15</span></p>
+            <p class="col-12 mb-3 text-muted">玉米鲜肉 (水饺) &times;1           <span>￥16</span></p>
+            <p class="col-12 mb-4 text-muted">配送费                    <span>￥3</span></p>
+            <div class="col-12 mb-4"><img src="images/alipay.png"><span class="fa fa-check-circle" style="color: #34ce57;font-size:24px"></span></div>
+            <div class="col-12 "><img src="images/wechat.png"></div>
+
+            <div class="col-12 mb-5 text-white"> <button type="button" class="btn btn-success btn-lg btn-block loginmembertempD">确认支付</button></div>
+
+        </div>
+        <mainnav></mainnav>
+    </div>
+</template>
 
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->

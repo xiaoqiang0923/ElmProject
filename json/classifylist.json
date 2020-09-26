@@ -5,52 +5,55 @@
     "orderlists": [
       {
         "opic":"images/dcfl01.png",
-        "oname": "美食"
+        "oname": "美食",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl02.png",
-        "oname": "早餐"
+        "oname": "早餐",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl03.png",
-        "oname": "跑腿代购"
+        "oname": "跑腿代购",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl04.png",
-        "oname": "汉堡披萨"
+        "oname": "汉堡披萨",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl05.png",
-        "oname": "甜品饮品"
+        "oname": "甜品饮品",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl06.png",
-        "oname": "素食简餐"
+        "oname": "素食简餐",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl07.png",
-        "oname": "地方小吃"
+        "oname": "地方小吃",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl08.png",
-        "oname": "米粉面馆"
+        "oname": "米粉面馆",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl09.png",
-        "oname": "包子粥铺"
+        "oname": "包子粥铺",
+        "routeradd": "/shoplist"
       },
       {
         "opic":"images/dcfl10.png",
-        "oname": "炸鸡炸串"
-      },
-      {
-        "opic":"images/dcfl10.png",
-        "oname": "炸鸡炸串"
-      },
-      {
-        "opic":"images/dcfl10.png",
-        "oname": "炸鸡炸串"
+        "oname": "炸鸡炸串",
+        "routeradd": "/shoplist"
       }
+
     ]
   }
 }

@@ -2,9 +2,9 @@ body{
     height: 100%;
 }
 
-a{
+body a,a:hover{
     text-decoration:none !important;
-
+    color: inherit;
 }
 /*底部导航样式*/
 .mainnavtemp{
@@ -27,8 +27,12 @@ a{
     font-size: 30px;
 }
 /*顶部搜索样式*/
-.searchtemp{
+.searchtemp {
     height: 80px;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    padding-top: 17px;
 }
 
 /*分类列表*/
@@ -212,14 +216,173 @@ a{
 
 /*底部结算样式*/
 .settlementtemp{
-    border: 1px solid red;
+    height: 9vw;
 }
 .settlementtemp .carleft{
     background-color: #505051;
 }
+.settlementtemp .carleft>div{
+    width: 10vw;
+    height: 10vw;
+    box-sizing: border-box;
+    border: solid 1.6vw #444;
+    border-radius: 8vw;
+    background-color: #3190E8;
+    font-size: 4vw;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 3.5vw;
+    top: -2.5vw;
+}
+.settlementtemp .carleft>div>div{
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 2.5vw;
+    background-color: red;
+    color: #fff;
+    font-size: 3.6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -1.5vw;
+    top: -1.5vw;
+}
+.settlementtemp .carleft p{
+    width: 8vw;
+    margin-left: 14vw;
+    font-size: 2.8vw;
+    color: #fff;
+    margin-top: 0.5vw;
+    margin-bottom: 0;
+}
+.settlementtemp .carleft span{
+    margin-left: 14vw;
+    font-size: 2vw;
+    color: #AAA;
+}
 .settlementtemp .carright{
     background-color: #38CA73;
     color: #fff;
-    font-size: 30px;
+    text-align: center;
+}
+.settlementtemp .carright h2{
+    line-height: 9vw;
+    font-size: 4vw;
     font-weight: 900;
+}
+
+/*用户登陆样式*/
+.loginmembertemp{
+    width: 100%;
+    margin-top: 190px;
+}
+.loginmembertemp span{
+    margin-bottom: 20px;
+    font-size: 2vw;
+    font-weight: 700;
+    color: #666;
+}
+.loginmembertemp div{
+    margin-top: 35px;
+}
+
+/*用户注册样式*/
+.loginmembertemp {
+    width: 100%;
+    margin-top: 12vm;
+    font-size: 1vw;
+}
+
+/*确认订单样式*/
+.orderTemp{
+    margin-bottom: 200px;
+}
+.orderTemp div:nth-child(1){
+    margin-top: 160px;
+    height: 170px;
+}
+.orderTemp>div>h5{
+    font-size: 2vw;
+    font-weight: 300;
+    margin-top: 10px;
+}
+.orderTemp>div span{
+    font-weight: 700;
+    font-size: 3vw;
+    margin-right: 50vw;
+}
+.orderTemp>div i{
+    font-weight: 700;
+    font-size: 4vw;
+}
+.orderTemp div:nth-child(2) h3{
+    padding: 3vw;
+    font-size: 4vw;
+    color: #666;
+    border-bottom: solid 1px #DDD;
+}
+.orderTemp .orderstl img{
+    width: 10vw;
+    height: 10vw;
+    margin-bottom: 20px;
+}
+.orderTemp .orderstl p{
+    width: 300px;
+    font-size: 2vw;
+    color: #666;
+}
+
+/*底部结算样式*/
+.paymenttemp{
+    height: 9vw;
+}
+.paymenttemp>div{
+    background-color: #505051;
+    color: #fff;
+    text-align: center;
+    line-height: 9vw;
+    font-size: 3.5vw;
+    font-weight: 700;
+}
+.paymenttemp div:nth-child(2){
+    background-color: #38CA73;
+    color: #fff;
+    text-align: center;
+    line-height: 9vw;
+    font-size: 3.5vw;
+    font-weight: 700;
+}
+
+/*我的订单样式*/
+.orderlisttemp {
+    width: 100%;
+    margin-top: 180px;
+}
+.orderlisttemp span{
+    float: right;
+}
+.orderlisttemp .order-info-right-icon{
+    background-color: #f90;
+    color: #fff;
+    border-radius: 3px;
+    margin-left: 0.5vw;
+}
+
+/*在线支付样式*/
+.olpaymenttemp{
+    margin-top: 180px;
+    margin-bottom: 150px;
+}
+.olpaymenttemp :nth-child(2) span{
+    color: #e7081b;
+}
+.olpaymenttemp span{
+    float: right;
+}
+.olpaymenttemp div:nth-last-child(1){
+    margin-top: 50px;
 }
